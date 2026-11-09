@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vinhhd-reecons.github.io/sitemap.xml
+Sitemap: https://bengau.io.vn/sitemap.xml
