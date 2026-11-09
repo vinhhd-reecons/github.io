@@ -283,13 +283,30 @@ main:focus { outline: none; }
 .nav a[aria-current="page"] { background: var(--primary-soft); color: var(--link); }
 .no-js .nav { display: block; position: static; margin: 0; box-shadow: none; border: 0; background: none; }
 
+/* Menu con: danh sách chuyên mục */
+.nav { max-height: calc(100vh - 88px); overflow-y: auto; }
+.nav-sub { margin: 2px 0 6px 14px; padding-left: 10px; border-left: 2px solid var(--border); }
+.nav-sub a { min-height: 44px; font-weight: 500; font-size: .95rem; color: var(--muted, var(--text)); }
+.nav-sub a::before { content: "›"; margin-right: 8px; color: var(--link); font-weight: 700; }
+
 @media (min-width: 760px) {
   .nav-toggle { display: none; }
   .nav {
     display: flex !important; gap: 4px; position: static; order: 2;
     margin: 0; padding: 0; background: none; border: 0; box-shadow: none;
+    max-height: none; overflow: visible;
   }
   .nav a { min-height: 44px; }
+  .nav-group { position: relative; }
+  .nav-group-title::after { content: "▾"; margin-left: 6px; font-size: .8em; }
+  .nav-sub {
+    display: none; position: absolute; top: 100%; left: 0; z-index: 60;
+    min-width: 240px; margin: 0; padding: 8px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; box-shadow: var(--shadow-lg);
+  }
+  .nav-group:hover .nav-sub, .nav-group:focus-within .nav-sub { display: block; }
+  .nav-sub a { display: flex; white-space: nowrap; }
 }
 
 /* ---------- Phần mở đầu (hero) ---------- */
