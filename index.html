@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="assets/style.css">
 <script src="assets/app.js" defer></script>
 </head>
-<body data-root="">
+<body data-root="" data-trang="home" class="has-fab">
 <a class="skip" href="#noi-dung">Bỏ qua, đến nội dung chính</a>
 
 <header class="topbar">
@@ -34,15 +34,9 @@
       <span class="logo" aria-hidden="true">HDV</span>
       <span class="brand-text"><strong>HDV IT</strong><small>Hướng dẫn xử lý sự cố</small></span>
     </a>
-    <div class="bar-actions">
-      <button class="icon-btn theme-btn" type="button" aria-label="Chế độ tối" title="Chế độ tối" aria-pressed="false">
-        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-      </button>
-      <button class="icon-btn nav-toggle menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span aria-hidden="true">☰</span> Menu</button>
-    </div>
     <nav id="menu" class="nav" aria-label="Menu chính">
       <a href="index.html" aria-current="page">Trang chủ</a>
+      <a href="tai-lieu.html">Tài liệu</a>
       <div class="nav-group">
         <a class="nav-group-title" href="index.html#chuyen-muc">Chuyên mục</a>
         <div class="nav-sub">
@@ -56,12 +50,37 @@
       </div>
       <a href="gioi-thieu.html">Giới thiệu</a>
     </nav>
+    <div class="hsearch" id="tim-nhanh">
+      <form class="hs-form" role="search" action="tai-lieu.html">
+        <label for="tim-dau" class="visually-hidden">Tìm bài hướng dẫn</label>
+        <div class="hs-field">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="tim-dau" name="q" type="search" autocomplete="off" placeholder="Tìm bài… vd: máy in" role="combobox" aria-expanded="false" aria-controls="kq-dau" aria-autocomplete="list">
+        </div>
+        <p id="tt-dau" class="visually-hidden" role="status" aria-atomic="true"></p>
+        <div id="kq-dau-khung" class="hs-results" hidden>
+          <p id="kq-dau-tb" class="hs-msg"></p>
+          <ul id="kq-dau" class="hs-list" role="listbox" aria-label="Kết quả tìm kiếm"></ul>
+        </div>
+      </form>
+    </div>
+    <div class="bar-actions">
+      <button class="icon-btn search-toggle" type="button" aria-label="Tìm kiếm" title="Tìm kiếm" aria-expanded="false" aria-controls="tim-nhanh">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="icon-btn theme-btn" type="button" aria-label="Chế độ tối" title="Chế độ tối" aria-pressed="false">
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="icon-btn nav-toggle menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span aria-hidden="true">☰</span> Menu</button>
+    </div>
   </div>
 </header>
 
 <main id="noi-dung" tabindex="-1">
   <section class="hero" aria-labelledby="tieu-de-chinh">
-    <div class="wrap">
+    <div class="wrap hero-grid">
+     <div class="hero-text">
       <span class="eyebrow">HDV IT · Hướng dẫn xử lý sự cố</span>
       <h1 id="tieu-de-chinh">Sửa lỗi IT từng bước – ai cũng làm được</h1>
       <p class="hero-lead">Tổng hợp cách xử lý sự cố máy tính, Microsoft 365, mạng và máy in từ 10 năm làm IT Admin &amp; IT Helpdesk. Mỗi bài chia rõ: phần bạn tự làm được và phần cần nhờ IT.</p>
@@ -81,6 +100,101 @@
         <p id="trang-thai-tim" class="visually-hidden" role="status" aria-atomic="true"></p>
         <div id="ket-qua" class="results" hidden></div>
       </form>
+
+      <div class="hero-cta">
+        <a class="btn btn-white" href="tai-lieu.html">Xem tài liệu hướng dẫn <span aria-hidden="true">→</span></a>
+        <a class="btn btn-line" href="#tim" data-tim-focus><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Tìm lỗi đang gặp</a>
+      </div>
+     </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 460 340" focusable="false">
+          <defs>
+            <linearGradient id="hg-man" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef2ff"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
+            <linearGradient id="hg-de" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2e8f0"/><stop offset="1" stop-color="#cbd5e1"/></linearGradient>
+          </defs>
+          <circle cx="232" cy="160" r="150" fill="#ffffff" opacity=".09"/>
+          <ellipse cx="230" cy="312" rx="196" ry="16" fill="#0f172a" opacity=".22"/>
+          <!-- Nắp laptop + màn hình -->
+          <rect x="80" y="44" width="300" height="208" rx="16" fill="#0f172a"/>
+          <rect x="93" y="57" width="274" height="182" rx="8" fill="url(#hg-man)"/>
+          <path d="M101 57h258a8 8 0 0 1 8 8v16H93V65a8 8 0 0 1 8-8z" fill="#c7d2fe"/>
+          <circle cx="108" cy="69" r="4" fill="#f87171"/><circle cx="122" cy="69" r="4" fill="#fbbf24"/><circle cx="136" cy="69" r="4" fill="#34d399"/>
+          <!-- Thẻ báo lỗi -->
+          <rect x="109" y="96" width="124" height="64" rx="10" fill="#ffffff" stroke="#fecaca" stroke-width="2"/>
+          <circle cx="132" cy="128" r="12" fill="#ef4444"/>
+          <path d="M132 121v8M132 134.5v.5" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+          <rect x="152" y="117" width="66" height="7" rx="3.5" fill="#fca5a5"/>
+          <rect x="152" y="131" width="46" height="7" rx="3.5" fill="#fecaca"/>
+          <!-- Thẻ các bước -->
+          <rect x="245" y="96" width="104" height="64" rx="10" fill="#ffffff" stroke="#c7d2fe" stroke-width="2"/>
+          <circle cx="262" cy="115" r="7" fill="#2563eb"/><rect x="276" y="111" width="58" height="7" rx="3.5" fill="#bfdbfe"/>
+          <circle cx="262" cy="141" r="7" fill="#7c3aed"/><rect x="276" y="137" width="46" height="7" rx="3.5" fill="#ddd6fe"/>
+          <!-- Thẻ đã xong -->
+          <rect x="109" y="174" width="240" height="46" rx="10" fill="#ffffff" stroke="#bbf7d0" stroke-width="2"/>
+          <circle cx="131" cy="197" r="11" fill="#16a34a"/>
+          <path d="m125.5 197 3.8 3.8 6.4-7.4" fill="none" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="152" y="193" width="120" height="8" rx="4" fill="#86efac"/>
+          <rect x="282" y="193" width="48" height="8" rx="4" fill="#dcfce7"/>
+          <!-- Đế laptop -->
+          <path d="M36 252h388l-14 26a14 14 0 0 1-12.3 7.3H62.3A14 14 0 0 1 50 277.5z" fill="url(#hg-de)"/>
+          <rect x="196" y="252" width="68" height="9" rx="4.5" fill="#94a3b8"/>
+          <!-- Huy hiệu sửa lỗi (cờ lê) -->
+          <circle cx="384" cy="58" r="44" fill="#f59e0b"/>
+          <circle cx="384" cy="58" r="50" fill="none" stroke="#ffffff" stroke-width="3" opacity=".45"/>
+          <path transform="translate(360 34) scale(2)" d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Huy hiệu bánh răng -->
+          <circle cx="62" cy="186" r="30" fill="#ffffff"/>
+          <circle cx="62" cy="186" r="11" fill="none" stroke="#7c3aed" stroke-width="5"/>
+          <path d="M62 164v8M62 200v8M40 186h8M76 186h8M46.4 170.4l5.7 5.7M71.9 195.9l5.7 5.7M46.4 201.6l5.7-5.7M71.9 176.1l5.7-5.7" stroke="#7c3aed" stroke-width="5" stroke-linecap="round"/>
+          <!-- Lấp lánh -->
+          <path d="M424 150l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="#ffffff" opacity=".85"/>
+          <path d="M34 92l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#ffffff" opacity=".7"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="section values-sec" aria-labelledby="h-gia-tri">
+    <div class="wrap">
+      <h2 id="h-gia-tri" class="visually-hidden">Điểm nổi bật</h2>
+      <div class="values">
+        <div class="card value reveal">
+          <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+            <rect x="4" y="4" width="56" height="56" rx="16" fill="#dbeafe"/>
+            <circle cx="32" cy="35" r="16" fill="#ffffff" stroke="#2563eb" stroke-width="3.5"/>
+            <path d="M28 13h8M32 13v6" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M32 35V26M32 35l6 4" stroke="#1e3a8a" stroke-width="3.2" stroke-linecap="round"/>
+            <circle cx="47" cy="47" r="9" fill="#16a34a"/>
+            <path d="m43 47 2.8 2.8 4.6-5.2" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3>Tự sửa lỗi trong vài phút</h3>
+          <p>Các bước rõ ràng, ai cũng làm được.</p>
+        </div>
+        <div class="card value reveal">
+          <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+            <rect x="4" y="4" width="27" height="56" rx="12" fill="#dcfce7"/>
+            <rect x="33" y="4" width="27" height="56" rx="12" fill="#e0e7ff"/>
+            <circle cx="17.5" cy="25" r="6" fill="#15803d"/>
+            <path d="M8.5 44a9 9 0 0 1 18 0" fill="#15803d"/>
+            <path transform="translate(35 20) scale(1)" d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" fill="none" stroke="#1e40af" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3>Tách rõ phần người dùng và phần IT</h3>
+          <p>Mỗi bài có phần “Bạn tự làm” cho người dùng và phần “Dành cho IT” thu gọn riêng cho kỹ thuật.</p>
+        </div>
+        <div class="card value reveal">
+          <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+            <rect x="4" y="4" width="56" height="56" rx="16" fill="#ede9fe"/>
+            <circle cx="27" cy="27" r="11" fill="#ffffff" stroke="#7c3aed" stroke-width="4"/>
+            <path d="m35 35 8 8" stroke="#7c3aed" stroke-width="4.5" stroke-linecap="round"/>
+            <circle cx="46" cy="18" r="5" fill="#2563eb"/>
+            <circle cx="50" cy="44" r="5" fill="#f59e0b"/>
+            <path d="M42.5 20.5 37 24" stroke="#2563eb" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+          <h3>Tra cứu nhanh, gửi link dễ dàng</h3>
+          <p>Tìm không cần gõ dấu, chia sẻ link bài qua Zalo hoặc Teams chỉ một lần bấm.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -88,46 +202,47 @@
     <div class="wrap">
       <div class="section-head">
         <div>
-          <h2 id="h-chuyen-muc">Chuyên mục</h2>
+          <h2 id="h-chuyen-muc">Nhóm hướng dẫn</h2>
           <p>Chọn nhóm sự cố bạn đang gặp.</p>
         </div>
+        <a class="btn ghost" href="tai-lieu.html">Xem tất cả tài liệu <span aria-hidden="true">→</span></a>
       </div>
-      <div class="cat-grid">
+      <div class="cat-grid big">
         <a class="cat-card reveal" href="chuyen-muc/microsoft-365.html">
           <span class="ic t-m365" data-icon="microsoft-365" aria-hidden="true"></span>
           <span class="cat-name">Microsoft 365</span>
           <span class="cat-desc">Outlook, Teams, OneDrive, tài khoản và mật khẩu, MFA.</span>
-          <span class="cat-count">1 bài</span>
+          <span class="cat-foot"><span class="cat-count" data-dem="microsoft-365">1 bài</span><span class="cat-go">Xem <span aria-hidden="true">→</span></span></span>
         </a>
         <a class="cat-card reveal" href="chuyen-muc/mang-wifi.html">
           <span class="ic t-net" data-icon="mang-wifi" aria-hidden="true"></span>
           <span class="cat-name">Mạng &amp; Wifi</span>
           <span class="cat-desc">Mất mạng, wifi chập chờn, router, switch.</span>
-          <span class="cat-count">1 bài</span>
+          <span class="cat-foot"><span class="cat-count" data-dem="mang-wifi">1 bài</span><span class="cat-go">Xem <span aria-hidden="true">→</span></span></span>
         </a>
         <a class="cat-card reveal" href="chuyen-muc/may-chu-nas.html">
           <span class="ic t-nas" data-icon="may-chu-nas" aria-hidden="true"></span>
           <span class="cat-name">Máy chủ &amp; NAS</span>
           <span class="cat-desc">Domain Controller, Active Directory, NAS Synology, ổ mạng.</span>
-          <span class="cat-count zero">Sắp có bài</span>
+          <span class="cat-foot"><span class="cat-count zero" data-dem="may-chu-nas">Sắp có bài</span><span class="cat-go">Xem <span aria-hidden="true">→</span></span></span>
         </a>
         <a class="cat-card reveal" href="chuyen-muc/phan-cung-may-in.html">
           <span class="ic t-hw" data-icon="phan-cung-may-in" aria-hidden="true"></span>
           <span class="cat-name">Phần cứng &amp; Máy in</span>
           <span class="cat-desc">Máy tính, laptop, máy in, máy quét mã vạch.</span>
-          <span class="cat-count">1 bài</span>
+          <span class="cat-foot"><span class="cat-count" data-dem="phan-cung-may-in">1 bài</span><span class="cat-go">Xem <span aria-hidden="true">→</span></span></span>
         </a>
         <a class="cat-card reveal" href="chuyen-muc/phan-mem-windows.html">
           <span class="ic t-win" data-icon="phan-mem-windows" aria-hidden="true"></span>
           <span class="cat-name">Phần mềm &amp; Windows</span>
           <span class="cat-desc">Windows chậm, lỗi cập nhật, cài và sửa Office.</span>
-          <span class="cat-count zero">Sắp có bài</span>
+          <span class="cat-foot"><span class="cat-count zero" data-dem="phan-mem-windows">Sắp có bài</span><span class="cat-go">Xem <span aria-hidden="true">→</span></span></span>
         </a>
         <a class="cat-card reveal" href="chuyen-muc/ai-cong-nghe.html">
           <span class="ic t-ai" data-icon="ai-cong-nghe" aria-hidden="true"></span>
           <span class="cat-name">AI &amp; Công nghệ mới</span>
           <span class="cat-desc">Dùng AI (ChatGPT, Gemini, Claude) để làm việc IT nhanh hơn.</span>
-          <span class="cat-count zero">Sắp có bài</span>
+          <span class="cat-foot"><span class="cat-count zero" data-dem="ai-cong-nghe">Sắp có bài</span><span class="cat-go">Xem <span aria-hidden="true">→</span></span></span>
         </a>
       </div>
     </div>
@@ -178,7 +293,28 @@
       </div>
     </div>
   </section>
+
+  <section class="section" aria-labelledby="h-cta">
+    <div class="wrap">
+      <div class="cta reveal">
+        <svg class="cta-art" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <rect x="6" y="10" width="40" height="30" rx="10" fill="#ffffff" opacity=".95"/>
+          <path d="M16 40v10l10-10z" fill="#ffffff" opacity=".95"/>
+          <circle cx="18" cy="25" r="3" fill="#2563eb"/><circle cx="26" cy="25" r="3" fill="#4f46e5"/><circle cx="34" cy="25" r="3" fill="#7c3aed"/>
+          <circle cx="48" cy="44" r="12" fill="#f59e0b"/>
+          <path d="M48 38v7M48 49.5v.5" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <div class="cta-text">
+          <h2 id="h-cta">Đã thử mà vẫn chưa được?</h2>
+          <p>Liên hệ IT để được hỗ trợ.</p>
+        </div>
+        <a class="btn btn-white" href="gioi-thieu.html#lien-he">Liên hệ <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
 </main>
+
+<a class="fab-contact" href="gioi-thieu.html#lien-he"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-5A8 8 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg>Liên hệ IT</a>
 
 <footer class="footer">
   <div class="wrap">
